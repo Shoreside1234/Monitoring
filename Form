@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoreside Primary School - Monitoring Feedback</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            transition: border-color 0.15s ease-in-out, shadow-sm 0.15s ease-in-out;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        .form-group textarea {
+            min-height: 6rem;
+            resize: vertical;
+        }
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .form-actions button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            font-size: 1rem;
+            border: none;
+        }
+        .form-actions button:hover {
+            transform: translateY(-1px);
+        }
+        .form-actions button[type="submit"] {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .form-actions button[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+        .form-actions button[type="button"] {
+            background-color: #e5e7eb;
+            color: #374151;
+            margin-left: 1rem;
+        }
+        .form-actions button[type="button"]:hover {
+            background-color: #d1d5db;
+        }
+
+        .year-group-feedback {
+            border: 1px solid #e5e7eb;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.375rem;
+            background-color: #f9fafb;
+        }
+
+        .year-group-feedback h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="form-container">
+        <header class="form-header">
+            <h1 class="text-2xl font-semibold text-gray-800">Shoreside Primary School - Monitoring Feedback</h1>
+            <p class="text-gray-600">Please provide your feedback from the monitoring activity.</p>
+        </header>
+        <form id="monitoringForm">
+            <section class="form-section">
+                <h2>Monitoring Details</h2>
+                <div class="form-group">
+                    <label for="date">Date of Monitoring Activity <span class="text-red-500">*</span></label>
+                    <input type="date" id="date" name="date" required class="bg-white">
+                </div>
+                <div class="form-group">
+                    <label for="type">Type of Monitoring Activity <span class="text-red-500">*</span></label>
+                    <select id="type" name="type" required class="bg-white">
+                        <option value="" disabled selected>Select an activity</option>
+                        <option value="Learning Walk">Learning Walk</option>
+                        <option value="Book Look">Book Look</option>
+                        <option value="Pupil Voice">Pupil Voice</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject <span class="text-red-500">*</span></label>
+                    <input type="text" id="subject" name="subject" placeholder="e.g., Mathematics, History" required class="bg-white">
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Feedback by Year Group</h2>
+                <div class="year-group-feedback">
+                    <h3>Pre-Nursery</h3>
+                    <div class="form-group">
+                        <label for="pre-nursery-feedback">Feedback</label>
+                        <textarea id="pre-nursery-feedback" name="pre-nursery-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Nursery</h3>
+                    <div class="form-group">
+                        <label for="nursery-feedback">Feedback</label>
+                        <textarea id="nursery-feedback" name="nursery-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Reception</h3>
+                    <div class="form-group">
+                        <label for="reception-feedback">Feedback</label>
+                        <textarea id="reception-feedback" name="reception-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 1</h3>
+                    <div class="form-group">
+                        <label for="year1-feedback">Feedback</label>
+                        <textarea id="year1-feedback" name="year1-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 2</h3>
+                    <div class="form-group">
+                        <label for="year2-feedback">Feedback</label>
+                        <textarea id="year2-feedback" name="year2-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 3</h3>
+                    <div class="form-group">
+                        <label for="year3-feedback">Feedback</label>
+                        <textarea id="year3-feedback" name="year3-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 4</h3>
+                    <div class="form-group">
+                        <label for="year4-feedback">Feedback</label>
+                        <textarea id="year4-feedback" name="year4-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 5</h3>
+                    <div class="form-group">
+                        <label for="year5-feedback">Feedback</label>
+                        <textarea id="year5-feedback" name="year5-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+                <div class="year-group-feedback">
+                    <h3>Year 6</h3>
+                    <div class="form-group">
+                        <label for="year6-feedback">Feedback</label>
+                        <textarea id="year6-feedback" name="year6-feedback" class="bg-white"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit">Submit Feedback</button>
+                <button type="button" id="clearForm">Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('clearForm').addEventListener('click', function() {
+            document.getElementById('monitoringForm').reset();
+        });
+
+        document.getElementById('monitoringForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Email addresses of teachers (replace with actual emails)
+            const teacherEmails = {
+                'pre-nursery': 'mohara@example.com',
+                'nursery': 'mohara@example.com',
+                'reception': 'ktaylor@example.com',
+                'year1': 'imawdsley@example.com',
+                'year2': 'lsmith@example.com',
+                'year3': 'amonahan@example.com',
+                'year4': 'lwells@example.com',
+                'year5': 'jbeaumont@example.com',
+                'year6': 'aeadie@example.com',
+                'seniorleaders': ['mpower@example.com', 'dfoley@example.com']
+            };
+
+            // Function to send email using EmailJS
+            const sendEmail = (toEmail, subject, message) => {
+                const emailServiceId = 'YOUR_EMAILJS_SERVICE_ID'; // Replace
+                const emailTemplateId = 'YOUR_EMAILJS_TEMPLATE_ID';   // Replace
+                const emailPublicKey = 'YOUR_EMAILJS_PUBLIC_KEY';    // Replace
+
+                emailjs.init(emailPublicKey);
+
+                const emailParams = {
+                    to_email: toEmail,
+                    subject: subject,
+                    message: message,
+                };
+
+                emailjs.send(emailServiceId, emailTemplateId, emailParams)
+                    .then(function(response) {
+                        console.log('Email sent successfully to ' + toEmail + ':', response);
+                    }, function(error) {
+                        console.error('Error sending email to ' + toEmail + ':', error);
+                        alert('Failed to send some emails. Please check your internet connection and try again.');
+                    });
+            };
+
+            let emailBody = `Shoreside Primary School - Monitoring Feedback\n\n`;
+            emailBody += `Date of Monitoring Activity: ${data.date}\n`;
+            emailBody += `Type of Monitoring Activity: ${data.type}\n`;
+            emailBody += `Subject: ${data.subject}\n\n`;
+            emailBody += `Feedback by Year Group:\n`;
+            emailBody += `Pre-Nursery: ${data['pre-nursery-feedback'] || 'No feedback'}\n`;
+            emailBody += `Nursery: ${data['nursery-feedback'] || 'No feedback'}\n`;
+            emailBody += `Reception: ${data['reception-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 1: ${data['year1-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 2: ${data['year2-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 3: ${data['year3-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 4: ${data['year4-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 5: ${data['year5-feedback'] || 'No feedback'}\n`;
+            emailBody += `Year 6: ${data['year6-feedback'] || 'No feedback'}\n`;
+
+            // Send emails to year group teachers
+            if (data['pre-nursery-feedback']) {
+                sendEmail(teacherEmails['pre-nursery'], 'Pre-Nursery Feedback', emailBody);
+            }
+            if (data['nursery-feedback']) {
+                sendEmail(teacherEmails['nursery'], 'Nursery Feedback', emailBody);
+            }
+            if (data['reception-feedback']) {
+                sendEmail(teacherEmails['reception'], 'Reception Feedback', emailBody);
+            }
+            if (data['year1-feedback']) {
+                sendEmail(teacherEmails['year1'], 'Year 1 Feedback', emailBody);
+            }
+            if (data['year2-feedback']) {
+                sendEmail(teacherEmails['year2'], 'Year 2 Feedback', emailBody);
+            }
+            if (data['year3-feedback']) {
+                sendEmail(teacherEmails['year3'], 'Year 3 Feedback', emailBody);
+            }
+            if (data['year4-feedback']) {
+                sendEmail(teacherEmails['year4'], 'Year 4 Feedback', emailBody);
+            }
+            if (data['year5-feedback']) {
+                sendEmail(teacherEmails['year5'], 'Year 5 Feedback', emailBody);
+            }
+            if (data['year6-feedback']) {
+                sendEmail(teacherEmails['year6'], 'Year 6 Feedback', emailBody);
+            }
+
+            // Send email to senior leaders
+            teacherEmails.seniorleaders.forEach(email => {
+                sendEmail(email, 'Shoreside Primary School - Monitoring Feedback', emailBody);
+            });
+
+            alert('Feedback submitted successfully! Copies have been sent to relevant teachers and senior leaders.');
+            document.getElementById('monitoringForm').reset();
+        });
+    </script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</body>
+</html>
